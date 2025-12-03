@@ -1,21 +1,25 @@
 /* ============================================================
-   REMOVE STREAMLIT DEFAULT PADDING / TOP GAP (MAIN FIX)
-   ============================================================ */
-[data-testid="stMain"] {
+   REMOVE STREAMLIT DEFAULT PADDING / TOP GAP
+============================================================ */
+[data-testid="stMain"],
+.block-container,
+.main {
   padding: 0 !important;
   margin: 0 !important;
 }
 
-.block-container {
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-html, body, .main {
+html, body {
   padding: 0 !important;
   margin: 0 !important;
   overflow-x: hidden;
 }
+
+/* FIX GLOBAL WRAPPER */
+.wrapper {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 
 /* ==========================
    GLOBAL STYLES
@@ -30,111 +34,41 @@ html, body, .main {
 body {
   background: #f4f6fb;
   color: #333;
-  transition: 0.3s ease;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-.dark {
-  background: #0f0f0f;
-  color: white;
-}
-
-
-/* ============================================================
-   FIX MAIN HERO GAP (FOR STREAMLIT EMBED)
-   ============================================================ */
-.hero {
-  margin-top: -160px !important; /* ⭐ MAIN FIX */
-  padding-top: 50px !important;
-  min-height: 80vh;
-}
-
-/* If needed later:
-   margin-top: -180px !important;
-   margin-top: -200px !important;
-*/
 
 /* ==========================
-   NAVBAR
-========================== */
-.navbar {
-  width: 100%;
-  height: 70px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 40px;
-  background: #ffffff70;
-  backdrop-filter: blur(10px);
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 100;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-}
-
-.logo {
-  font-size: 22px;
-  font-weight: 700;
-  color: #4e6bff;
-}
-
-.nav-links {
-  display: flex;
-  gap: 25px;
-  list-style: none;
-}
-
-.nav-links a {
-  text-decoration: none;
-  color: #333;
-  font-weight: 500;
-  transition: 0.3s;
-}
-
-.nav-links a:hover {
-  color: #4e6bff;
-}
-
-/* Dark mode */
-.dark .nav-links a {
-  color: #fff;
-}
-
-.toggle-btn {
-  background: none;
-  border: none;
-  font-size: 22px;
-  cursor: pointer;
-}
-
-
-/* ==========================
-   HERO SECTION
+   FIX HERO GAP (MAIN FIX)
 ========================== */
 .hero {
+  margin-top: -120px !important;
+  padding-top: 40px !important;
   min-height: 80vh;
-  padding: 40px;
   display: flex;
-  justify-content: center;
   align-items: center;
   background: linear-gradient(135deg, #e2e8ff, #f6f7ff);
 }
 
+
+/* ==========================
+   HERO CONTENT
+========================== */
 .hero-content {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   gap: 40px;
   flex-wrap: wrap;
+  padding: 20px;
 }
 
 .main-name {
   font-size: 45px;
-  font-weight: 700;
+  font-weight: bold;
   background: linear-gradient(to right, #4e6bff, #6f83ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -142,31 +76,23 @@ html {
 
 .roles, .location {
   font-size: 18px;
-  margin-top: 5px;
   opacity: 0.8;
 }
 
 .slogan-box p {
-  font-size: 16px;
-  margin-top: 8px;
-  opacity: 0.9;
+  font-size: 15px;
+  margin-top: 6px;
   font-style: italic;
 }
 
 .connect-btn {
-  display: inline-block;
-  margin-top: 20px;
   padding: 10px 20px;
   background: #4e6bff;
   color: white;
   text-decoration: none;
   border-radius: 6px;
-  font-weight: 500;
-  transition: 0.3s;
-}
-
-.connect-btn:hover {
-  background: #2f4fec;
+  margin-top: 15px;
+  display: inline-block;
 }
 
 .pfp-small {
@@ -174,21 +100,16 @@ html {
   height: 220px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
   border: 4px solid white;
-}
-
-/* Dark mode */
-.dark .hero {
-  background: #101010;
+  box-shadow: 0px 6px 20px rgba(0,0,0,0.2);
 }
 
 
 /* ==========================
-   SECTION STYLES
+   SECTIONS
 ========================== */
 section {
-  padding: 30px 50px !important;  /* CLEAN_SPACING */
+  padding: 30px 50px !important;
   max-width: 1100px;
   margin: auto;
 }
@@ -202,28 +123,16 @@ h2 {
 
 .card {
   background: white;
-  padding: 22px;
+  padding: 20px;
   border-radius: 14px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-  transition: 0.3s;
+  box-shadow: 0px 6px 20px rgba(0,0,0,0.1);
   line-height: 1.7;
   margin-top: 10px;
 }
 
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-}
-
-/* Dark mode */
-.dark .card {
-  background: #222;
-  color: white;
-}
-
 
 /* ==========================
-   PROJECTS
+   PROJECT GRID
 ========================== */
 .project-grid {
   display: grid;
@@ -233,38 +142,9 @@ h2 {
 
 .project-card {
   background: white;
-  padding: 18px;
+  padding: 20px;
   border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-  transition: 0.3s;
-}
-
-.project-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-}
-
-/* Dark mode */
-.dark .project-card {
-  background: #222;
-}
-
-
-/* ==========================
-   CONTACT
-========================== */
-#contact {
-  text-align: center;
-}
-
-.social-links a {
-  margin: 10px;
-  font-size: 22px;
-  color: #4e6bff;
-}
-
-.dark .social-links a {
-  color: #9bb0ff;
+  box-shadow: 0px 6px 20px rgba(0,0,0,0.1);
 }
 
 
@@ -275,11 +155,5 @@ footer {
   text-align: center;
   padding: 15px;
   margin-top: 20px;
-  background: #ffffffa0;
-  backdrop-filter: blur(10px);
-  font-size: 14px;
-}
-
-.dark footer {
-  background: #1a1a1a;
+  opacity: 0.7;
 }
