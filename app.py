@@ -5,11 +5,11 @@ st.set_page_config(page_title="Mohana Teja | Portfolio", layout="wide")
 
 # Load CSS
 with open("style.css", "r", encoding="utf-8") as f:
-    css = f"<style>{f.read()}</style>"
+    css = "<style>" + f.read() + "</style>"
 
-# Load CLEAN HTML (no <html>, <body>, <head>)
+# Load HTML (CLEAN — no <html> <body> tags)
 with open("index.html", "r", encoding="utf-8") as f:
     html = f.read()
 
-# Render properly inside an iframe
-components.html(css + html, height=8000, scrolling=True)
+# Combine and render inside iframe
+components.html(css + html, height=7000, scrolling=True)
