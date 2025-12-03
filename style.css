@@ -1,3 +1,22 @@
+/* ============================================================
+   REMOVE STREAMLIT DEFAULT PADDING / TOP GAP (MAIN FIX)
+   ============================================================ */
+[data-testid="stMain"] {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.block-container {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+html, body, .main {
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow-x: hidden;
+}
+
 /* ==========================
    GLOBAL STYLES
 ========================== */
@@ -8,27 +27,35 @@
   font-family: "Poppins", sans-serif;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   background: #f4f6fb;
   color: #333;
-  overflow-x: hidden;
   transition: 0.3s ease;
 }
 
-/* REMOVE STREAMLIT EXTRA PADDING */
-html, body, .main {
-  margin: 0 !important;
-  padding: 0 !important;
+html {
+  scroll-behavior: smooth;
 }
 
 .dark {
   background: #0f0f0f;
   color: white;
 }
+
+
+/* ============================================================
+   FIX MAIN HERO GAP (FOR STREAMLIT EMBED)
+   ============================================================ */
+.hero {
+  margin-top: -160px !important; /* ⭐ MAIN FIX */
+  padding-top: 50px !important;
+  min-height: 80vh;
+}
+
+/* If needed later:
+   margin-top: -180px !important;
+   margin-top: -200px !important;
+*/
 
 /* ==========================
    NAVBAR
@@ -84,12 +111,11 @@ html, body, .main {
   cursor: pointer;
 }
 
+
 /* ==========================
    HERO SECTION
 ========================== */
 .hero {
-  margin-top: 15px !important;
-  padding-top: 20px !important;
   min-height: 80vh;
   padding: 40px;
   display: flex;
@@ -157,11 +183,12 @@ html, body, .main {
   background: #101010;
 }
 
+
 /* ==========================
    SECTION STYLES
 ========================== */
 section {
-  padding: 30px 50px !important;   /* Reduced gap */
+  padding: 30px 50px !important;  /* CLEAN_SPACING */
   max-width: 1100px;
   margin: auto;
 }
@@ -170,7 +197,7 @@ h2 {
   font-size: 30px;
   border-left: 6px solid #6c8bff;
   padding-left: 10px;
-  margin-bottom: 18px;
+  margin-bottom: 15px;
 }
 
 .card {
@@ -180,7 +207,7 @@ h2 {
   box-shadow: 0 8px 25px rgba(0,0,0,0.08);
   transition: 0.3s;
   line-height: 1.7;
-  margin-top: 12px;
+  margin-top: 10px;
 }
 
 .card:hover {
@@ -193,6 +220,7 @@ h2 {
   background: #222;
   color: white;
 }
+
 
 /* ==========================
    PROJECTS
@@ -221,8 +249,9 @@ h2 {
   background: #222;
 }
 
+
 /* ==========================
-   CONTACT / SOCIALS
+   CONTACT
 ========================== */
 #contact {
   text-align: center;
@@ -237,6 +266,7 @@ h2 {
 .dark .social-links a {
   color: #9bb0ff;
 }
+
 
 /* ==========================
    FOOTER
